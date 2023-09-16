@@ -7,5 +7,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping(value = "/personnel")
 public class PersonnelController {
-    
+
+
 }
