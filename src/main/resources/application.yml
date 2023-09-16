@@ -1,1 +1,14 @@
+#### APPLICATION SETTINGS
+server:
+  port: 8000
 
+#### DEV DATABASE SETTINGS
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/enoca_db
+    username: postgres
+    password: 1357
+  jpa:
+    hibernate:
+      ddl-auto: update

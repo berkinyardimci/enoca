@@ -3,6 +3,7 @@ package com.enoca.entity;
 import com.enoca.entity.enums.EType;
 import jakarta.persistence.*;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,8 +14,8 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
-public class Company {
+@SuperBuilder
+public class Company extends BaseEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,7 +29,7 @@ public class Company {
 
     @Column(name = "web_site", unique = true)
     private String webSite;
-    
+
     @Enumerated(EnumType.STRING)
     private EType type;
 
