@@ -12,4 +12,5 @@ public class PersonnelService extends ServiceManager<Personnel,Long>{
         super(personnelRepository);
         this.personnelRepository = personnelRepository;
     }
+
 }

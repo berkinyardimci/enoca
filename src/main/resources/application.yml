@@ -11,4 +11,4 @@ spring:
     password: 1357
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create

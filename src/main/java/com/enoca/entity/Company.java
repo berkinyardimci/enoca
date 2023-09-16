@@ -21,13 +21,13 @@ public class Company extends BaseEntity{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "company_name", unique = true)
+    @Column(name = "company_name")
     private String companyName;
 
-    @Column(name = "tax_id", unique = true, length = 15)
+    @Column(name = "tax_id", length = 15)
     private String taxId;
 
-    @Column(name = "web_site", unique = true)
+    @Column(name = "web_site")
     private String webSite;
 
     @Enumerated(EnumType.STRING)
