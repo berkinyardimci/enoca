@@ -133,6 +133,32 @@ Payload:
 }
 ```
 
+* Şirkete Göre Personelleri listele.
+
+```
+Endpoint: http://localhost:8000/personnel/getAll/2
+Request Method: Get
+Result:
+{
+    "httpStatus": "OK",
+    "statusCode": 200,
+    "message": "Kullanıcı Listesi",
+    "localTime": "2023-09-17T21:00:05.168151174",
+    "data": [
+        {
+            "firstName": "berkin",
+            "lastName": "yardımcı",
+            "identityNumber": "112229"
+        },
+        {
+            "firstName": "mehmet",
+            "lastName": "kaya",
+            "identityNumber": "11119"
+        }
+    ]
+}
+```
+
 <b>Global Exception Handling için TAMAMEN GENERIC olarak bir yapı kurgulanmıştır.</b><br>
 <b>INTERCEPTORLAR ile requestler alınmıştır ve bu requestin içerisinden gelen bilgiler ile hata mesajları dönülmüştür.</b>
 
