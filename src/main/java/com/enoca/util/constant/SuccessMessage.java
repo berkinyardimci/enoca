@@ -6,5 +6,8 @@ import lombok.experimental.UtilityClass;
 public class SuccessMessage {
 
     public final String COMPANY_CREATED = "Şirket Oluştu";
+    public final String GET_ALL_COMPANIES = "Şirket Listesi";
+
+    public final String DELETED_COMPANY = "Şirket Silindi";
 
 }

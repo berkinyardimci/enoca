@@ -34,4 +34,11 @@ public class GenericResponse <T>{
         this.localTime = localTime;
         this.data = data;
     }
+
+    public GenericResponse(HttpStatus httpStatus, Integer statusCode, String message, LocalDateTime localTime) {
+        this.httpStatus = httpStatus;
+        this.statusCode = statusCode;
+        this.message = message;
+        this.localTime = localTime;
+    }
 }

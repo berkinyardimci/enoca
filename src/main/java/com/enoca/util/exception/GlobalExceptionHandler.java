@@ -52,6 +52,12 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         return getGenericResponse("Sistemsel Bir hata", HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
+    @ExceptionHandler(CompanyNotFoundException.class)
+    public ResponseEntity<GenericResponse<?>> handleCompanyNotFoundException(CompanyNotFoundException ex){
+        String message = ex.getExMessage();
+        return getGenericResponse(message, HttpStatus.NOT_FOUND);
+    }
+
     private Map<Object, Object> createErrorMap(){
         HttpServletRequest currentRequest = RequestInterceptor.getCurrentRequest();
         Map<Object, Object> errorMap = new HashMap<>();

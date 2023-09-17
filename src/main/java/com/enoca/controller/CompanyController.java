@@ -2,17 +2,17 @@ package com.enoca.controller;
 
 import com.enoca.dto.request.CreateCompanyRequest;
 import com.enoca.dto.response.CreateCompanyResponse;
+import com.enoca.dto.response.GetAllCompanyResponse;
 import com.enoca.service.CompanyService;
 import com.enoca.util.GenericResponse;
 import com.enoca.util.constant.SuccessMessage;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @RestController
 @RequestMapping(value = "/company")
@@ -31,5 +31,28 @@ public class CompanyController {
                 LocalDateTime.now(),
                 response
                 );
+    }
+
+    @GetMapping("/getAll")
+    public GenericResponse<?> getAllCompany(){
+        List<GetAllCompanyResponse> allCompany = companyService.getAllCompany();
+        return new GenericResponse<>(
+                HttpStatus.OK,
+                HttpStatus.OK.value(),
+                SuccessMessage.GET_ALL_COMPANIES,
+                LocalDateTime.now(),
+                !allCompany.isEmpty() ? allCompany : "Şirket Eklenmedi"
+        );
+    }
+
+    @DeleteMapping("/deleteById/{id}")
+    public GenericResponse<?> deleteById(@PathVariable Long id){
+        companyService.deleteById(id);
+        return new GenericResponse<>(
+                HttpStatus.OK,
+                HttpStatus.OK.value(),
+                SuccessMessage.DELETED_COMPANY,
+                LocalDateTime.now()
+        );
     }
 }
