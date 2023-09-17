@@ -21,10 +21,10 @@ public class Company extends BaseEntity{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "company_name")
+    @Column(name = "company_name",nullable = false, unique = true)
     private String companyName;
 
-    @Column(name = "tax_id", length = 15)
+    @Column(name = "tax_id", length = 5, unique = true, nullable = false)
     private String taxId;
 
     @Column(name = "web_site")
