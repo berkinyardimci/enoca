@@ -9,5 +9,5 @@ public class ErrorMessage {
     public final String DUPLICATE_KEY = " Duplice Veriler bulundu";
     public final String LONG_VALUE = "çok fazla değer geldi";
     public final String COMPANY_NOT_FOUDN = "Company Bulunamadı";
-
+    public static final String NOT_NULL_PROPERTY = "Boş field Gonderildi";
 }

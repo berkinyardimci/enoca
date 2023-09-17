@@ -1,8 +1,10 @@
 package com.enoca.controller;
 
 import com.enoca.dto.request.CreateCompanyRequest;
+import com.enoca.dto.request.UpdateCompanyRequest;
 import com.enoca.dto.response.CreateCompanyResponse;
 import com.enoca.dto.response.GetAllCompanyResponse;
+import com.enoca.dto.response.UpdateCompanyResponse;
 import com.enoca.service.CompanyService;
 import com.enoca.util.GenericResponse;
 import com.enoca.util.constant.SuccessMessage;
@@ -11,6 +13,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.lang.reflect.InvocationTargetException;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -53,6 +56,17 @@ public class CompanyController {
                 HttpStatus.OK.value(),
                 SuccessMessage.DELETED_COMPANY,
                 LocalDateTime.now()
+        );
+    }
+    @PutMapping("/updateById/{id}")
+    public GenericResponse<?> updateById(@PathVariable Long id, @RequestBody UpdateCompanyRequest request) throws InvocationTargetException, IllegalAccessException {
+        UpdateCompanyResponse updateCompanyResponse = companyService.updateById(id, request);
+        return new GenericResponse<>(
+                HttpStatus.OK,
+                HttpStatus.OK.value(),
+                SuccessMessage.UPDATED_COMPANY,
+                LocalDateTime.now(),
+                updateCompanyResponse
         );
     }
 }

@@ -48,6 +48,10 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
             String errorMessage = ErrorMessage.LONG_VALUE;
             return getGenericResponse(errorMessage,HttpStatus.BAD_REQUEST);
         }
+        if (message.contains("not-null property")) {
+            String errorMessage = ErrorMessage.NOT_NULL_PROPERTY;
+            return getGenericResponse(errorMessage,HttpStatus.BAD_REQUEST);
+        }
 
         return getGenericResponse("Sistemsel Bir hata", HttpStatus.INTERNAL_SERVER_ERROR);
     }

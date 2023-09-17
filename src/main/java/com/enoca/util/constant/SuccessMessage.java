@@ -10,4 +10,6 @@ public class SuccessMessage {
 
     public final String DELETED_COMPANY = "Şirket Silindi";
 
+    public static final String UPDATED_COMPANY = "Güncelleme yapıldı";
 }
+

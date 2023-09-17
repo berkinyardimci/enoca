@@ -1,16 +1,20 @@
 package com.enoca.service;
 
 import com.enoca.dto.request.CreateCompanyRequest;
+import com.enoca.dto.request.UpdateCompanyRequest;
 import com.enoca.dto.response.CreateCompanyResponse;
 import com.enoca.dto.response.GetAllCompanyResponse;
+import com.enoca.dto.response.UpdateCompanyResponse;
 import com.enoca.entity.Company;
 import com.enoca.repository.CompanyRepository;
 import com.enoca.util.GenericResponse;
 import com.enoca.util.converter.Converter;
 import com.enoca.util.exception.CompanyNotFoundException;
 import lombok.RequiredArgsConstructor;
+import org.apache.commons.beanutils.BeanUtils;
 import org.springframework.stereotype.Service;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -40,5 +44,12 @@ public class CompanyService{
     public void deleteById(Long id){
         companyRepository.findById(id).orElseThrow(() -> new CompanyNotFoundException(id));
         companyRepository.deleteById(id);
+    }
+
+    public UpdateCompanyResponse updateById(Long id, UpdateCompanyRequest request) throws InvocationTargetException, IllegalAccessException {
+        Company existingCompany = companyRepository.findById(id).orElseThrow(() -> new CompanyNotFoundException(id));
+        BeanUtils.copyProperties(existingCompany, request);
+        companyRepository.save(existingCompany);
+        return converter.toUpdateCompanyResponse(existingCompany);
     }
 }
