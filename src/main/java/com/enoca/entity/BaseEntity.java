@@ -1,38 +1,34 @@
 package com.enoca.entity;
 
+import jakarta.persistence.EntityListeners;
 import jakarta.persistence.MappedSuperclass;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.experimental.SuperBuilder;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.io.Serializable;
-import java.time.LocalDate;
 import java.util.Date;
 
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
-@SuperBuilder
+@EntityListeners(AuditingEntityListener.class)
 @MappedSuperclass
-public abstract class BaseEntity<U> implements Serializable {
+public abstract class BaseEntity implements Serializable {
 
     @CreatedBy
-    private U createBy;
+    protected String createdBy;
 
     @CreatedDate
-    private Date creationDate;
+    protected Date creationDate;
 
     @LastModifiedBy
-    private U lastModifiedBy;
+    protected String lastModifiedBy;
 
     @LastModifiedDate
     @Temporal(TemporalType.TIMESTAMP)
-    private Date lastModifiedDate;
+    protected Date lastModifiedDate;
 }

@@ -6,15 +6,13 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import lombok.*;
-import lombok.experimental.SuperBuilder;
 
 @Entity
 @Table
-@Getter
-@Setter
-@AllArgsConstructor
+@Data
 @NoArgsConstructor
-@SuperBuilder
+@AllArgsConstructor
+@Builder
 public class Personnel extends BaseEntity{
 
     @Id

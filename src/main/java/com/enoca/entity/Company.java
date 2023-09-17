@@ -10,11 +10,10 @@ import java.util.List;
 
 @Entity
 @Table
-@Getter
-@Setter
-@AllArgsConstructor
+@Data
+@Builder
 @NoArgsConstructor
-@SuperBuilder
+@AllArgsConstructor
 public class Company extends BaseEntity{
 
     @Id
