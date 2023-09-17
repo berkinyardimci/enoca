@@ -59,13 +59,4 @@ public class PersonnelService {
         allByCompanyId.forEach(item -> list.add(converter.toGetAllPersonnelResponse(item)));
         return list;
     }
-
-
-    //Todo: updateByid ++
-    //Todo: personelleri listele
-    //Todo: dockerize
-    //Todo: doc hazırla
-
-
-
 }
