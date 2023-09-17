@@ -49,8 +49,6 @@ public class PersonnelService {
 
         BeanUtils.copyProperties(existingPersonnel, request);
         personnelRepository.save(existingPersonnel);
-        Optional<Personnel> byId = personnelRepository.findById(id);
-        existingPersonnel.setCompany(byId.get().getCompany());
         return converter.toUpdatePersonnelResponse(existingPersonnel);
     }
 

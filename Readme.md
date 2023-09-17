@@ -4,11 +4,16 @@
 - JDK(17)
 - PostgreSQL
 - IDE (IntelliJ IDEA)
+- Docker Desktop
 
 ### Technologies
 - Java
 - Spring Boot(3.1.3)
 - PostgresSQL
+- Docker (Dockerfile and Docker Compose)
+
+### Architecture
+- Monolithic
 
 ### Stages
 ##### 1-Clone the project

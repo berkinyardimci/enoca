@@ -8,6 +8,8 @@ public class EnocaApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(EnocaApplication.class, args);
-    }
 
+    }
 }
+
+
