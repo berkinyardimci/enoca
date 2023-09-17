@@ -1,6 +1,7 @@
 package com.enoca.dto.response;
 
 import com.enoca.entity.enums.EType;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 

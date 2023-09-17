@@ -1,5 +1,6 @@
 package com.enoca.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 import jakarta.persistence.FetchType;
@@ -30,6 +31,7 @@ public class Personnel extends BaseEntity{
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "company_id")
+    @JsonBackReference
     private Company company;
 
 }

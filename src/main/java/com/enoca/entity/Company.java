@@ -1,6 +1,7 @@
 package com.enoca.entity;
 
 import com.enoca.entity.enums.EType;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
@@ -32,7 +33,8 @@ public class Company extends BaseEntity{
     @Enumerated(EnumType.STRING)
     private EType type;
 
-    @OneToMany(mappedBy = "company", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "company", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<Personnel> personnelList = new ArrayList<>();
 
 }
