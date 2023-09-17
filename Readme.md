@@ -55,9 +55,7 @@ company -> Company
 
 identityNumber -> String
 
-### REQUESTS
-
-* Öncelikle Company Oluşturulmalıdır.
+### REQUESTS PAYLOADS AND RESULT EXAMPLES
 
 ```
 Endpoint: localhost:8000/company/create
@@ -71,7 +69,7 @@ Payload:
 }
 ```
 
-* Sonuç olarak
+* RESULT
 ```
 {
     {
@@ -118,7 +116,7 @@ Payload:
     "identityNumber": "115679"
 }
 ```
-* Sonuç olarak
+* RESULT
 ```
 {
     "httpStatus": "CREATED",
@@ -134,4 +132,7 @@ Payload:
     }
 }
 ```
+
+<b>Global Exception Handling için TAMAMEN GENERIC olarak bir yapı kurgulanmıştır.</b><br>
+<b>INTERCEPTORLAR ile requestler alınmıştır ve bu requestin içerisinden gelen bilgiler ile hata mesajları dönülmüştür.</b>
 
