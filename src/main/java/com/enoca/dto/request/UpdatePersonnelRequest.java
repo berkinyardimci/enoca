@@ -1,6 +1,5 @@
 package com.enoca.dto.request;
 
-
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
@@ -8,13 +7,12 @@ import lombok.Setter;
 @Getter
 @Setter
 @Builder
-public class CreatePersonnelRequest {
+public class UpdatePersonnelRequest {
 
     private String firstName;
 
     private String lastName;
 
-    private String identityNumber;
-
     private Long company_id;
+
 }

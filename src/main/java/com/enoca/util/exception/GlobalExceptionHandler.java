@@ -62,6 +62,12 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         return getGenericResponse(message, HttpStatus.NOT_FOUND);
     }
 
+    @ExceptionHandler(PersonnelNotFoundException.class)
+    public ResponseEntity<GenericResponse<?>> handlePersonnelNotFoundException(PersonnelNotFoundException ex){
+        String message = ex.getExMessage();
+        return getGenericResponse(message, HttpStatus.NOT_FOUND);
+    }
+
     private Map<Object, Object> createErrorMap(){
         HttpServletRequest currentRequest = RequestInterceptor.getCurrentRequest();
         Map<Object, Object> errorMap = new HashMap<>();

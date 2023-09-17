@@ -2,10 +2,7 @@ package com.enoca.util.converter;
 
 import com.enoca.dto.request.CreateCompanyRequest;
 import com.enoca.dto.request.CreatePersonnelRequest;
-import com.enoca.dto.response.CreateCompanyResponse;
-import com.enoca.dto.response.CreatePersonnelResponse;
-import com.enoca.dto.response.GetAllCompanyResponse;
-import com.enoca.dto.response.UpdateCompanyResponse;
+import com.enoca.dto.response.*;
 import com.enoca.entity.Company;
 import com.enoca.entity.Personnel;
 import org.springframework.stereotype.Component;
@@ -39,6 +36,7 @@ public class Converter {
                 .updateDate(company.getLastModifiedDate())
                 .taxId(company.getTaxId())
                 .webSite(company.getWebSite())
+                .type(company.getType())
                 .build();
     }
 
@@ -67,6 +65,24 @@ public class Converter {
                 .lastName(personnel.getLastName())
                 .identityNumber(personnel.getIdentityNumber())
                 .creationDate(personnel.getCreationDate())
+                .build();
+    }
+
+    public UpdatePersonnelResponse toUpdatePersonnelResponse(Personnel personnel) {
+        return UpdatePersonnelResponse.builder()
+                .companyName(personnel.getCompany().getCompanyName())
+                .firstName(personnel.getFirstName())
+                .lastName(personnel.getLastName())
+                .updatedDate(personnel.getLastModifiedDate())
+                .identityNumber(personnel.getIdentityNumber())
+                .build();
+    }
+
+    public GetAllPersonnelResponse toGetAllPersonnelResponse(Personnel personnel) {
+        return GetAllPersonnelResponse.builder()
+                .firstName(personnel.getFirstName())
+                .lastName(personnel.getLastName())
+                .identityNumber(personnel.getIdentityNumber())
                 .build();
     }
 }

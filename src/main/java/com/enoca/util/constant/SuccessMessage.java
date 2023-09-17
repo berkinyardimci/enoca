@@ -10,5 +10,7 @@ public class SuccessMessage {
     public final String DELETED_COMPANY = "Şirket Silindi";
     public static final String UPDATED_COMPANY = "Güncelleme yapıldı";
     public static final String PERSON_CREATED = "Personel Oluşturuldu";
+    public static final String UPDATED_PERSONNEL = "Kullanıcı Güncellendi";
+    public static final String GET_ALL_PERSON = "Kullanıcı Listesi";
 }
 
